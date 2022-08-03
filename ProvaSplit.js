@@ -82,7 +82,15 @@ function DisegnaAgo(nomeAgo, angolo, dim) {
     context.stroke();  
     context.clearRect(0, 0, canvas.width, canvas.height);
 }
-var mssql=Request('mssql')
+const http = require('http');
+
+const options = {
+  hostname: 'example.com',
+  port: 443,
+  path: '/todos',
+  method: 'GET',
+};
+var mssql=request('mssql')
 var config = {
     "user": "TEST", //default is sa
     "password": "tiger",
