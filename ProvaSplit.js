@@ -30,35 +30,45 @@ function DisegnaAgo(nomeAgo, angolo, dim) {
     var angStart
     var angFine
 
+    var        dividendo = 1
+    var    moltiplicatore = 2
 
-    if (angolo = 180) {
-        dividendo = 1
-        moltiplicatore = 2
+    var angStart = 0
+    var    angFine = angolo
+    // else if (angolo = 135) {
+    //     dividendo = 3
+    //     moltiplicatore = 8
 
-        angStart = 0
-        angFine = angolo
+    //     angStart = 0
+    //     angFine = angolo
+    // }
+    // else if (angolo = 225) {
+    //     dividendo = 5
+    //     moltiplicatore = 8
 
-    }
-    else if (angolo = 135) {
-        dividendo = 3
-        moltiplicatore = 8
+    //     angStart = 0
+    //     angFine = angolo
+    // }
 
-        angStart = 0
-        angFine = angolo
-    }
-    else if (angolo = 225) {
-        dividendo = 5
-        moltiplicatore = 8
+    //The path to the image that we want to add.
+var imgPath = 'AAAAA.png';
 
-        angStart = 0
-        angFine = angolo
-    }
+//Create a new Image object.
+var imgObj = new Image();
 
+//Set the src of this Image object.
+imgObj.src = imgPath;
 
+//the x coordinates
+var x = 100;
+
+//the y coordinates
+var y = 200;
 
 
     var canvas = document.getElementById("myCanvas");
     var context = canvas.getContext("2d");
+    context.drawImage(imgObj, x, y);
 
     var centerX = canvas.width / 2;
     var centerY = canvas.height / 4;
@@ -80,28 +90,5 @@ function DisegnaAgo(nomeAgo, angolo, dim) {
     context.lineWidth = 1;
     context.strokeStyle = "black";
     context.stroke();  
-    context.clearRect(0, 0, canvas.width, canvas.height);
+    // context.clearRect(0, 0, canvas.width, canvas.height);
 }
-const express = require('express');
-const app = express();
-const mssql = require("mysql");
- 
-// Get request
-app.get('/', function (req, res) {
- 
-    // Config your database credential
-    const config = {
-        user: 'TEST',
-        password: 'tiger',
-        server: '192.168.172.18',
-        database: 'TEST'
-    };
- 
-    // Connect to your database
-    mssql.connect(config, function (err) {
- 
-        // Create Request object to perform
-        // query operation
-        var request = new mssql.Request();
-    });
-});
