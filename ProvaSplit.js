@@ -1,4 +1,3 @@
-// var dic = {}
 const input =
     document.querySelector('input[type="file"]')
 
@@ -83,7 +82,7 @@ function DisegnaAgo(nomeAgo, angolo, dim) {
     context.stroke();  
     context.clearRect(0, 0, canvas.width, canvas.height);
 }
-var mssql=request('mssql')
+var mssql=Request('mssql')
 var config = {
     "user": "TEST", //default is sa
     "password": "tiger",
