@@ -82,7 +82,7 @@ function DisegnaAgo(nomeAgo, angolo, dim) {
     context.stroke();  
     context.clearRect(0, 0, canvas.width, canvas.height);
 }
-var sql=require('mssql')
+var mssql = require('mssql')
 var config = {
     "user": "TEST", //default is sa
     "password": "tiger",
