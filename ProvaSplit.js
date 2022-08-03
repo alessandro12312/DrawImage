@@ -67,7 +67,7 @@ function DisegnaAgo(nomeAgo, angolo, dim) {
 
     console.log(r);
 
-    r = r + ((r * 20) / 100);èr
+    r = r + ((r * 20) / 100);
     var radius = r;
     var x = (Math.PI / 180) * angStart
     var y = (Math.PI / 180) * angFine
@@ -82,19 +82,26 @@ function DisegnaAgo(nomeAgo, angolo, dim) {
     context.stroke();  
     context.clearRect(0, 0, canvas.width, canvas.height);
 }
-var mssql = require('mssql')
-var config = {
-    "user": "TEST", //default is sa
-    "password": "tiger",
-    "server": "192.168.172.18", // for local machine
-    "options": {
-        "encrypt": true
-    }
-  }
-
-connect(config, err => { 
-if(err){
-    throw err ;
-}
-console.log("Connection Successful !");
-})
+const express = require('express');
+const app = express();
+const mssql = require("mysql");
+ 
+// Get request
+app.get('/', function (req, res) {
+ 
+    // Config your database credential
+    const config = {
+        user: 'TEST',
+        password: 'tiger',
+        server: '192.168.172.18',
+        database: 'TEST'
+    };
+ 
+    // Connect to your database
+    mssql.connect(config, function (err) {
+ 
+        // Create Request object to perform
+        // query operation
+        var request = new mssql.Request();
+    });
+});
