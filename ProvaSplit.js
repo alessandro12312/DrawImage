@@ -67,7 +67,7 @@ function DisegnaAgo(nomeAgo, angolo, dim) {
 
     console.log(r);
 
-    r = r + ((r * 20) / 100);
+    r = r + ((r * 20) / 100);èr
     var radius = r;
     var x = (Math.PI / 180) * angStart
     var y = (Math.PI / 180) * angFine
@@ -82,7 +82,7 @@ function DisegnaAgo(nomeAgo, angolo, dim) {
     context.stroke();  
     context.clearRect(0, 0, canvas.width, canvas.height);
 }
-var sql=request('mssql')
+var sql=require('mssql')
 var config = {
     "user": "TEST", //default is sa
     "password": "tiger",
