@@ -3,6 +3,9 @@ const input =
 
 var canvas = document.getElementById("myCanvas");
 var context = canvas.getContext('2d');
+context.save()
+
+
 
 input.addEventListener('change', function (e) {
     console.log(input.files)
@@ -13,7 +16,7 @@ input.addEventListener('change', function (e) {
         console.log(lines)
 
 
-        lines.forEach(linea => {
+        lines.forEach(linea =>{
 
             var cella = linea.split(",")
             var nomeAgo = cella[0]
@@ -50,7 +53,6 @@ function DisegnaAgo(nomeAgo,angolo,dim) {
         angStart = 0
         angFine = angolo
     };
-    context.save();
 
     var centerX = canvas.width / 2;
     var centerY = canvas.height / 4;
@@ -67,7 +69,6 @@ function DisegnaAgo(nomeAgo,angolo,dim) {
     var startingAngle = x;
     var endingAngle = y;
     var counterclockwise = false;
-
 
     context.arc(centerX, centerY, radius, startingAngle, endingAngle, counterclockwise);
 
@@ -91,7 +92,10 @@ function delay(time) {
   }
 
 function clean(){
+    context.save();
+    context.setTransform(1, 0, 0, 1, 0, 0);
     context.clearRect(0, 0, canvas.width, canvas.height);
     context.restore();
+    context.beginPath();
 
 }
