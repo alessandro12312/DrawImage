@@ -1,6 +1,9 @@
 const input =
     document.querySelector('input[type="file"]')
 
+var canvas = document.getElementById("myCanvas");
+var context = canvas.getContext('2d');
+
 input.addEventListener('change', function (e) {
     console.log(input.files)
     const reader = new FileReader()
@@ -17,40 +20,37 @@ input.addEventListener('change', function (e) {
             var angolo = parseFloat(cella[1])
             var dimensione = parseFloat(cella[2])
             var tipo = cella[3]
-            DisegnaAgo(nomeAgo, angolo, dimensione)
             console.log(nomeAgo,angolo,dimensione)
+            DisegnaAgo(nomeAgo, angolo, dimensione)
         }
         );
     }
     reader.readAsText(input.files[0])
 }, false)
 
-function DisegnaAgo(nomeAgo, angolo, dim) {
+function DisegnaAgo(nomeAgo,angolo,dim) {
 
-    if(angolo=180){
+    if(angolo == 135){
 
-        var dividendo = 1
-        var moltiplicatore = 2
+        var dividendo = 3
+        var moltiplicatore = 8
 
         var angStart = 0
         var angFine = angolo
-    }
-    else if (angolo = 135) {
-        dividendo = 3
-        moltiplicatore = 8
+    } else if (angolo == 180) {
+        dividendo = 1
+        moltiplicatore = 2
 
         angStart = 0
         angFine = angolo
-    }
-    else if (angolo = 225) {
+    }else if (angolo == 225) {
         dividendo = 5
         moltiplicatore = 8
 
         angStart = 0
         angFine = angolo
-    }
-    var canvas = document.getElementById("myCanvas");
-    var context = canvas.getContext("2d");
+    };
+    context.save();
 
     var centerX = canvas.width / 2;
     var centerY = canvas.height / 4;
@@ -58,7 +58,6 @@ function DisegnaAgo(nomeAgo, angolo, dim) {
     var r = ((((moltiplicatore * dim) / dividendo) / 2 * Math.PI) * 3.77);
 
     console.log(r);
-    console.log(dim)
 
 
     r = r + ((r * 20) / 100);
@@ -83,11 +82,16 @@ function DisegnaAgo(nomeAgo, angolo, dim) {
         console.log(link);
         link.click();
     }
-
     ScaricaFile()
-    context.clearRect(0, 0, canvas.width, canvas.height); 
+    document.getElementById('cancella').click();
 
 }
 function delay(time) {
     return new Promise(resolve => setTimeout(resolve, time));
   }
+
+function clean(){
+    context.clearRect(0, 0, canvas.width, canvas.height);
+    context.restore();
+
+}
