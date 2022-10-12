@@ -57,12 +57,10 @@ function DisegnaAgo(nomeAgo, angolo, dim) {
         var centerX = canvas.width / 2;
         var centerY = canvas.height / 4;
 
-        var r = ((((moltiplicatore * dim) / dividendo) / 2 * Math.PI) * 3.77);
+        var r = ((((moltiplicatore * dim) / dividendo) / 2 * Math.PI)*7.6);
 
         console.log(r);
 
-
-        r = r + ((r * 20) / 100);
         var radius = r;
         var x = (Math.PI / 180) * angStart
         var y = (Math.PI / 180) * angFine
@@ -72,10 +70,10 @@ function DisegnaAgo(nomeAgo, angolo, dim) {
 
         context.arc(centerX, centerY, radius, startingAngle, endingAngle, counterclockwise);
 
-        context.lineWidth = 1;
+        context.lineWidth = 2;
         context.strokeStyle = "black";
         context.stroke();
-    }
+        }
     else {
         context.lineWidth=1;
         var centerX = canvas.width / 2;
@@ -95,22 +93,7 @@ function DisegnaAgo(nomeAgo, angolo, dim) {
     }
     ScaricaFile()
     document.getElementById('cancella').click();
-
-    let post = JSON.stringify(nomeAgo)
- 
-    const url = "localhost:5000"
-    let xhr = new XMLHttpRequest()
- 
-    xhr.open('POST', url, true)
-    xhr.setRequestHeader('Content-type', 'application/json; charset=UTF-8')
-    xhr.send(post);
- 
-    xhr.onload = function () {
-        if(xhr.status === 201) {
-            console.log("Post successfully created!") 
-        }
-    }
-
+    
 }
 
 function clean() {
