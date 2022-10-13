@@ -2,6 +2,11 @@ function CanvasDinamico(raggio){
     canvas.width=(2*raggio)+50;
     canvas.height=raggio+50;
 }
+
+function CanvasRetto(altezza, lunghezza){
+    canvas.width=lunghezza; 
+    canvas.height=altezza;
+}
 const input =
     document.querySelector('input[type="file"]')
 
@@ -79,12 +84,13 @@ function DisegnaAgo(nomeAgo, angolo, dim) {
         context.stroke();
         }
     else {
-        context.lineWidth=1;
-        var centerX = canvas.width / 2;
-        var centerY = canvas.height / 4;
+        var spessore = 2;
+        var altezzaAgo= spessore+10;
+        var Lunghezza = dim * 80;
+        CanvasRetto(altezzaAgo,Lunghezza);
 
-        context.moveTo(centerX,centerY);
-        context.lineTo(130, 130);
+        context.moveTo(0,altezzaAgo/2);
+        context.lineTo(Lunghezza,altezzaAgo/2);
         context.stroke();
     };
     function ScaricaFile() {
