@@ -1,3 +1,7 @@
+function CanvasDinamico(raggio){
+    canvas.width=(2*raggio)+50;
+    canvas.height=raggio+50;
+}
 const input =
     document.querySelector('input[type="file"]')
 
@@ -53,13 +57,13 @@ function DisegnaAgo(nomeAgo, angolo, dim) {
             angStart = 0
             angFine = angolo
         }
-
+        var r = ((((moltiplicatore * dim) / dividendo) / 2 * Math.PI)*8);
+        CanvasDinamico(r);
         var centerX = canvas.width / 2;
         var centerY = canvas.height / 4;
 
-        var r = ((((moltiplicatore * dim) / dividendo) / 2 * Math.PI)*7.6);
-
         console.log(r);
+
 
         var radius = r;
         var x = (Math.PI / 180) * angStart
