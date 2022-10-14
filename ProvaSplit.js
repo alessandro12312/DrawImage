@@ -1,12 +1,13 @@
-function CanvasDinamico(raggio){
-    canvas.width=(2*raggio)+50;
-    canvas.height=raggio+50;
+function CanvasDinamico(raggio) {
+    canvas.width = (2 * raggio) + 100;
+    canvas.height = raggio * 2 + 50;
 }
 
-function CanvasRetto(altezza, lunghezza){
-    canvas.width=lunghezza; 
-    canvas.height=altezza;
+function CanvasRetto(altezza, lunghezza) {
+    canvas.width = lunghezza;
+    canvas.height = altezza;
 }
+
 const input =
     document.querySelector('input[type="file"]')
 
@@ -62,9 +63,9 @@ function DisegnaAgo(nomeAgo, angolo, dim) {
             angStart = 0
             angFine = angolo
         }
-        var r = ((((moltiplicatore * dim) / dividendo) / 2 * Math.PI)*8);
+        var r = ((((moltiplicatore * dim) / dividendo) / 2 * Math.PI) * 8);
         CanvasDinamico(r);
-        var centerX = canvas.width / 2;
+        var centerX = r;
         var centerY = canvas.height / 4;
 
         console.log(r);
@@ -76,21 +77,27 @@ function DisegnaAgo(nomeAgo, angolo, dim) {
         var startingAngle = x;
         var endingAngle = y;
         var counterclockwise = false;
-
+        context.beginPath()
         context.arc(centerX, centerY, radius, startingAngle, endingAngle, counterclockwise);
 
         context.lineWidth = 2;
         context.strokeStyle = "black";
+        context.stroke()
+        context.beginPath()
+        context.ellipse(2 * r + 30, centerY, 20, 30, Math.PI / 2, 0, 2 * Math.PI);
+
+        context.lineWidth = 2;
+        context.strokeStyle = "black";
         context.stroke();
-        }
+    }
     else {
         var spessore = 2;
-        var altezzaAgo= spessore+10;
+        var altezzaAgo = spessore + 10;
         var Lunghezza = dim * 80;
-        CanvasRetto(altezzaAgo,Lunghezza);
+        CanvasRetto(altezzaAgo, Lunghezza);
 
-        context.moveTo(0,altezzaAgo/2);
-        context.lineTo(Lunghezza,altezzaAgo/2);
+        context.moveTo(0, altezzaAgo / 2);
+        context.lineTo(Lunghezza, altezzaAgo / 2);
         context.stroke();
     };
     function ScaricaFile() {
@@ -103,7 +110,7 @@ function DisegnaAgo(nomeAgo, angolo, dim) {
     }
     ScaricaFile()
     document.getElementById('cancella').click();
-    
+
 }
 
 function clean() {
