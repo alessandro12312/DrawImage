@@ -1,37 +1,27 @@
-const express = require('express');
-const app = express();
-const mssql = require("mssql");
- 
-// Get request
+var express = require('express');
+var app = express();
+
 app.get('/', function (req, res) {
- 
-    // Config your database credential
-     const config = {
+   
+    var sql = require("mssql");
+
+    // config for your database
+    var config = {
         user: 'TEST',
         password: 'tiger',
-        server: '192.168.172.18',
-        database: 'TEST'
+        server: '192.168.172.18', 
+        database: 'sagex3p' 
     };
- 
-    // Connect to your database
-    mssql.connect(config, function (err) {
-        console.log("connessione riuscita")
-        var request = new mssql.Request();
- 
-        // Query to the database and get the records
-        // request.query('select * from student',
-        //     function (err, records) {
- 
-        //         if (err) console.log(err)
- 
-        //         // Send records as a response
-        //         // to browser
-        //         res.send(records);
- 
-        //     });
+
+    // connect to your database
+    sql.connect(config, function (err) {
+    
+        if (err) console.log(err);
+
+            
+        });
     });
-    });
- 
+
 var server = app.listen(5000, function () {
-    console.log('Server is listening at port 5000...');
+    console.log('Server is running..');
 });
