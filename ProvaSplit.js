@@ -1,29 +1,29 @@
-function CanvasDinamico(raggio,Tipo) {
-    if(Tipo=="Cappio"){
-        canvas.width = (2 * raggio) +70;
+function CanvasDinamico(raggio, Tipo) {
+    if (Tipo == "Cappio") {
+        canvas.width = (2 * raggio) + 70;
         canvas.height = raggio * 2 + 20;
     }
-    else if(Tipo=="Semi"){
-        canvas.width=(2*raggio)+50;
-        canvas.height=raggio+50;
+    else if (Tipo == "Semi") {
+        canvas.width = (2 * raggio) + 50;
+        canvas.height = raggio + 50;
     }
-    else if(Tipo=="Doppio"){
+    else if (Tipo == "Doppio") {
 
-        canvas.width=(2*raggio)+100;
-        canvas.height=(raggio*2)+50;
+        canvas.width = (2 * raggio) + 100;
+        canvas.height = (raggio * 2) + 50;
     }
-    
+
 }
 
 
-function CanvasRetto(altezza, lunghezza,Tipo) {
-    if (Tipo="Semi"){
-    canvas.width = lunghezza;
-    canvas.height = altezza;
-    }
-    if (Tipo="Doppio"){
+function CanvasRetto(altezza, lunghezza, Tipo) {
+    if (Tipo = "Semi") {
         canvas.width = lunghezza;
-        canvas.height = (altezza*2)+40;
+        canvas.height = altezza;
+    }
+    if (Tipo = "Doppio") {
+        canvas.width = lunghezza;
+        canvas.height = (altezza * 2) + 40;
     }
 }
 const input =
@@ -50,19 +50,18 @@ input.addEventListener('change', function (e) {
             var nomeAgo = cella[0]
             var angolo = parseFloat(cella[1])
             var dimensione = parseFloat(cella[2])
-            var  Modello = cella[3]
+            var Modello = cella[3]
 
-            if (Modello == "Semi" || Modello == "Retto"){
+            if (Modello == "Semi" || Modello == "Retto") {
 
-            DisegnaSemi(nomeAgo, angolo, dimensione,Modello);
+                DisegnaSemi(nomeAgo, angolo, dimensione, Modello);
 
             }
-            else if (Modello == "Cappio" ){
-                DiesegnoCappio(nomeAgo,angolo,dimensione,Modello);
+            else if (Modello == "Cappio") {
+                DiesegnoCappio(nomeAgo, angolo, dimensione, Modello);
             }
-            else if (Modello=="Doppio")
-            {
-                DisegnaDoppi(nomeAgo,angolo,dimensione,Modello);
+            else if (Modello == "Doppio") {
+                DisegnaDoppi(nomeAgo, angolo, dimensione, Modello);
             }
         }
         );
@@ -70,7 +69,7 @@ input.addEventListener('change', function (e) {
     reader.readAsText(input.files[0])
 }, false)
 
-function DiesegnoCappio(nomeAgo,angolo,dim,Tipo){
+function DiesegnoCappio(nomeAgo, angolo, dim, Tipo) {
     function ScaricaFile() {
         var dataUrl = canvas.toDataURL("image/png");
         var link = document.createElement('a');
@@ -101,7 +100,7 @@ function DiesegnoCappio(nomeAgo,angolo,dim,Tipo){
             angFine = angolo
         }
         var r = ((((moltiplicatore * dim) / dividendo) / 2 * Math.PI) * 8);
-        CanvasDinamico(r,Tipo);
+        CanvasDinamico(r, Tipo);
         var centerX = r;
         var centerY = canvas.height / 4;
 
@@ -125,13 +124,15 @@ function DiesegnoCappio(nomeAgo,angolo,dim,Tipo){
 
         context.lineWidth = 2;
         context.strokeStyle = "black";
+        context.setLineDash([5, 15]);
         context.stroke();
+
     }
     ScaricaFile()
     document.getElementById('cancella').click();
 }
 
-function DisegnaSemi(nomeAgo, angolo, dim,Tipo) {
+function DisegnaSemi(nomeAgo, angolo, dim, Tipo) {
     function ScaricaFile() {
         var dataUrl = canvas.toDataURL("image/png");
         var link = document.createElement('a');
@@ -162,7 +163,7 @@ function DisegnaSemi(nomeAgo, angolo, dim,Tipo) {
             angFine = angolo
         }
         var r = ((((moltiplicatore * dim) / dividendo) / 2 * Math.PI) * 8);
-        CanvasDinamico(r,Tipo);
+        CanvasDinamico(r, Tipo);
         var centerX = r;
         var centerY = canvas.height / 4;
 
@@ -185,7 +186,7 @@ function DisegnaSemi(nomeAgo, angolo, dim,Tipo) {
         var spessore = 2;
         var altezzaAgo = spessore + 10;
         var Lunghezza = dim * 80;
-        CanvasRetto(altezzaAgo, Lunghezza,Tipo);
+        CanvasRetto(altezzaAgo, Lunghezza, Tipo);
 
         context.moveTo(0, altezzaAgo / 2);
         context.lineTo(Lunghezza, altezzaAgo / 2);
@@ -195,7 +196,7 @@ function DisegnaSemi(nomeAgo, angolo, dim,Tipo) {
     document.getElementById('cancella').click();
 
 }
-function DisegnaDoppi(nomeAgo, angolo, dim,Tipo) {
+function DisegnaDoppi(nomeAgo, angolo, dim, Tipo) {
     function ScaricaFile() {
         var dataUrl = canvas.toDataURL("image/png");
         var link = document.createElement('a');
@@ -226,7 +227,7 @@ function DisegnaDoppi(nomeAgo, angolo, dim,Tipo) {
             angFine = angolo
         }
         var r = ((((moltiplicatore * dim) / dividendo) / 2 * Math.PI) * 8);
-        CanvasDinamico(r,Tipo);
+        CanvasDinamico(r, Tipo);
         var centerX = r;
         var centerY = canvas.height / 4;
 
@@ -246,7 +247,7 @@ function DisegnaDoppi(nomeAgo, angolo, dim,Tipo) {
         context.strokeStyle = "black";
         context.stroke();
         context.beginPath()
-        context.arc(centerX, centerY+50, radius, startingAngle, endingAngle, counterclockwise);
+        context.arc(centerX, centerY + 50, radius, startingAngle, endingAngle, counterclockwise);
 
         context.lineWidth = 2;
         context.strokeStyle = "black";
@@ -257,20 +258,20 @@ function DisegnaDoppi(nomeAgo, angolo, dim,Tipo) {
         var spessore = 2;
         var altezzaAgo = spessore + 10;
         var Lunghezza = dim * 80;
-        CanvasRetto(altezzaAgo, Lunghezza,Tipo);
+        CanvasRetto(altezzaAgo, Lunghezza, Tipo);
 
         context.beginPath()
         context.moveTo(0, altezzaAgo / 2);
         context.lineTo(Lunghezza, altezzaAgo / 2);
-        context.lineWidth=2;
-        context.strokeStyle="black";
+        context.lineWidth = 2;
+        context.strokeStyle = "black";
         context.stroke();
 
         context.beginPath()
-        context.moveTo(0, (altezzaAgo / 2)+20);
-        context.lineTo(Lunghezza, (altezzaAgo / 2)+20);
-        context.lineWidth=2;
-        context.strokeStyle="black";
+        context.moveTo(0, (altezzaAgo / 2) + 20);
+        context.lineTo(Lunghezza, (altezzaAgo / 2) + 20);
+        context.lineWidth = 2;
+        context.strokeStyle = "black";
         context.stroke();
     };
     ScaricaFile()
