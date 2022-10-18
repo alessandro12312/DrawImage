@@ -1,5 +1,5 @@
 function CanvasDinamico(raggio, Tipo) {
-    if (Tipo == "Cappio") {
+    if (Tipo =="Cappio") {
         canvas.width = (2 * raggio) + 70;
         canvas.height = raggio * 2 + 20;
     }
