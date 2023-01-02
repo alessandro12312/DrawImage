@@ -124,7 +124,7 @@ function DiesegnoCappio(nomeAgo, angolo, dim, Tipo) {
 			}
 		}
 
-		var r = ((((moltiplicatore * dim) / dividendo) / 2 * Math.PI) * 8);
+		var r = ((((moltiplicatore * dim) / dividendo) / 2 * Math.PI) * 12);
 		CanvasDinamico(r, Tipo);
 		var centerX = r;
 		var centerY = canvas.height / 4;
@@ -206,7 +206,7 @@ function DisegnaSemi(nomeAgo, angolo, dim, Tipo) {
 			angStart = 315
 			angFine = 238
 		}
-		var r = ((((moltiplicatore * dim) / dividendo) / 2 * Math.PI) * 8);
+		var r = ((((moltiplicatore * dim) / dividendo) / 2 * Math.PI) * 12);
 		CanvasDinamico(r, Tipo);
 		var centerX = r;
 		var centerY = canvas.height / 4;
@@ -291,7 +291,7 @@ function DisegnaSemi(nomeAgo, angolo, dim, Tipo) {
 			}
 
 		}
-		var r = ((((moltiplicatore * dim) / dividendo) / 2 * Math.PI) * 8);
+		var r = ((((moltiplicatore * dim) / dividendo) / 2 * Math.PI) * 12);
 		CanvasDinamico(r, Tipo);
 		var centerX = r;
 		var centerY = canvas.height / 4;

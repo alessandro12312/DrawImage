@@ -1,0 +1,24 @@
+const canvas = document.getElementById('myCanvas');
+const ctx = canvas.getContext('2d');
+
+// Dimensioni del primo semicerchio
+const x1 = 100;
+const y1 = 100;
+const r1 = 50;
+
+// Dimensioni del secondo semicerchio
+const x2 = 200;
+const y2 = 150;
+const r2 = 75;
+
+// Disegna il primo semicerchio
+ctx.beginPath();
+ctx.arc(x1, y1, r1, 0, Math.PI);
+ctx.stroke();
+
+// Disegna la curva di Bezier che connette il primo semicerchio al secondo
+ctx.bezierCurveTo(x1 + r1, y1, x2 - r2, y2, x2, y2);
+
+// Disegna il secondo semicerchio
+ctx.arc(x2, y2, r2, 0, Math.PI);
+ctx.stroke();
