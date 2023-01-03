@@ -4,13 +4,13 @@ function CanvasDinamico(raggio, Tipo) {
         canvas.height = raggio * 2 + 20;
     }
     else if (Tipo == "Semi") {
-        canvas.width = (2 * raggio) + 50;
+        canvas.width = (2 * raggio) + 20;
         canvas.height = raggio + 50;
     }
     else if (Tipo == "Doppio") {
 
-        canvas.width = (2 * raggio) + 100;
-        canvas.height = (raggio * 2) + 50;
+        canvas.width = (2 * raggio) + 50;
+        canvas.height = (raggio * 2) + 20;
     }
 
 }
@@ -78,26 +78,41 @@ function DiesegnoCappio(nomeAgo, angolo, dim, Tipo) {
         console.log(link);
         link.click();
     }
-    if (angolo != 0) {
-        if (angolo == 135) {
+		if (angolo != 0) {
+			if (angolo == 135) {
 
-            var dividendo = 3
-            var moltiplicatore = 8
+				var dividendo = 3
+				var moltiplicatore = 8
 
-            var angStart = 0
-            var angFine = angolo
-        } else if (angolo == 180) {
-            dividendo = 1
-            moltiplicatore = 2
+				var angStart = 25
+				var angFine = 155
 
-            angStart = 0
-            angFine = angolo
-        } else if (angolo == 225) {
-            dividendo = 5
-            moltiplicatore = 8
+			} else if (angolo == 180) {
+				dividendo = 1
+				moltiplicatore = 2
 
-            angStart = 0
-            angFine = angolo
+				angStart = 0
+				angFine = angolo
+			} else if (angolo == 225) {
+				dividendo = 5
+				moltiplicatore = 8
+
+				angStart = 330
+				angFine = 210
+			}
+			else if (angolo == 90) {
+				dividendo = 1
+				moltiplicatore = 4
+
+				angStart = 45
+				angFine = 135
+			}
+			else if (angolo == 288) {
+				dividendo = 4
+				moltiplicatore = 5
+
+				angStart = 315
+				angFine = 238
         }
         var r = ((((moltiplicatore * dim) / dividendo) / 2 * Math.PI) * 12);
         CanvasDinamico(r, Tipo);
@@ -141,26 +156,41 @@ function DisegnaSemi(nomeAgo, angolo, dim, Tipo) {
         console.log(link);
         link.click();
     }
-    if (angolo != 0) {
-        if (angolo == 135) {
+if (angolo != 0) {
+    if (angolo == 135) {
 
-            var dividendo = 3
-            var moltiplicatore = 8
+        var dividendo = 3
+        var moltiplicatore = 8
 
-            var angStart = 0
-            var angFine = angolo
-        } else if (angolo == 180) {
-            dividendo = 1
-            moltiplicatore = 2
+        var angStart = 25
+        var angFine = 155
 
-            angStart = 0
-            angFine = angolo
-        } else if (angolo == 225) {
-            dividendo = 5
-            moltiplicatore = 8
+    } else if (angolo == 180) {
+        dividendo = 1
+        moltiplicatore = 2
 
-            angStart = 0
-            angFine = angolo
+        angStart = 0
+        angFine = angolo
+    } else if (angolo == 225) {
+        dividendo = 5
+        moltiplicatore = 8
+
+        angStart = 330
+        angFine = 210
+    }
+    else if (angolo == 90) {
+        dividendo = 1
+        moltiplicatore = 4
+
+        angStart = 45
+        angFine = 135
+    }
+    else if (angolo == 288) {
+        dividendo = 4
+        moltiplicatore = 5
+
+        angStart = 315
+        angFine = 238
         }
         var r = ((((moltiplicatore * dim) / dividendo) / 2 * Math.PI) * 12);
         CanvasDinamico(r, Tipo);
@@ -177,6 +207,7 @@ function DisegnaSemi(nomeAgo, angolo, dim, Tipo) {
         var endingAngle = y;
         var counterclockwise = false;
         context.arc(centerX, centerY, radius, startingAngle, endingAngle, counterclockwise);
+
 
         context.lineWidth = 2;
         context.strokeStyle = "black";
@@ -205,27 +236,42 @@ function DisegnaDoppi(nomeAgo, angolo, dim, Tipo) {
         console.log(link);
         link.click();
     }
-    if (angolo != 0) {
-        if (angolo == 135) {
+if (angolo != 0) {
+    if (angolo == 135) {
 
-            var dividendo = 3
-            var moltiplicatore = 8
+        var dividendo = 3
+        var moltiplicatore = 8
 
-            var angStart = 0
-            var angFine = angolo
-        } else if (angolo == 180) {
-            dividendo = 1
-            moltiplicatore = 2
+        var angStart = 25
+        var angFine = 155
 
-            angStart = 0
-            angFine = angolo
-        } else if (angolo == 225) {
-            dividendo = 5
-            moltiplicatore = 8
+    } else if (angolo == 180) {
+        dividendo = 1
+        moltiplicatore = 2
 
-            angStart = 0
-            angFine = angolo
-        }
+        angStart = 0
+        angFine = angolo
+    } else if (angolo == 225) {
+        dividendo = 5
+        moltiplicatore = 8
+
+        angStart = 330
+        angFine = 210
+    }
+    else if (angolo == 90) {
+        dividendo = 1
+        moltiplicatore = 4
+
+        angStart = 45
+        angFine = 135
+    }
+    else if (angolo == 288) {
+        dividendo = 4
+        moltiplicatore = 5
+
+        angStart = 315
+        angFine = 238
+}
         var r = ((((moltiplicatore * dim) / dividendo) / 2 * Math.PI) * 12);
         CanvasDinamico(r, Tipo);
         var centerX = r;
