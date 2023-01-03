@@ -26,31 +26,30 @@ function CanvasRetto(altezza, lunghezza, Tipo) {
         canvas.height = (altezza * 2) + 40;
     }
 }
-const input =
-    document.querySelector('input[type="file"]')
+const input =document.querySelector('input[type="file"]');
 
 var canvas = document.getElementById("myCanvas");
 var context = canvas.getContext('2d');
-context.save()
+context.save();
 
 
 
 input.addEventListener('change', function (e) {
-    console.log(input.files)
-    const reader = new FileReader()
+    console.log(input.files);
+    const reader = new FileReader();
 
     reader.onload = function () {
-        const lines = reader.result.replace(/(\r)/gm, "").split('\n')
-        console.log(lines)
+        const lines = reader.result.replace(/(\r)/gm, "").split('\n');
+        console.log(lines);
 
 
         lines.forEach(linea => {
 
-            var cella = linea.split(",")
-            var nomeAgo = cella[0]
-            var angolo = parseFloat(cella[1])
-            var dimensione = parseFloat(cella[2])
-            var Modello = cella[3]
+            var cella = linea.split(",");
+            var nomeAgo = cella[0];
+            var angolo = parseFloat(cella[1]);
+            var dimensione = parseFloat(cella[2]);
+            var Modello = cella[3];
 
             if (Modello == "Semi" || Modello == "Retto") {
 
@@ -66,7 +65,7 @@ input.addEventListener('change', function (e) {
         }
         );
     }
-    reader.readAsText(input.files[0])
+    reader.readAsText(input.files[0]);
 }, false)
 
 function DiesegnoCappio(nomeAgo, angolo, dim, Tipo) {
@@ -81,38 +80,38 @@ function DiesegnoCappio(nomeAgo, angolo, dim, Tipo) {
 		if (angolo != 0) {
 			if (angolo == 135) {
 
-				var dividendo = 3
-				var moltiplicatore = 8
+				var dividendo = 3;
+				var moltiplicatore = 8;
 
-				var angStart = 25
-				var angFine = 155
+				var angStart = 25;
+				var angFine = 155;
 
 			} else if (angolo == 180) {
-				dividendo = 1
-				moltiplicatore = 2
+				dividendo = 1;
+				moltiplicatore = 2;
 
-				angStart = 0
-				angFine = angolo
+				angStart = 0;
+				angFine = angolo;
 			} else if (angolo == 225) {
-				dividendo = 5
-				moltiplicatore = 8
+				dividendo = 5;
+				moltiplicatore = 8;
 
-				angStart = 330
-				angFine = 210
+				angStart = 330;
+				angFine = 210;
 			}
 			else if (angolo == 90) {
-				dividendo = 1
-				moltiplicatore = 4
+				dividendo = 1;
+				moltiplicatore = 4;
 
-				angStart = 45
-				angFine = 135
+				angStart = 45;
+				angFine = 135;
 			}
 			else if (angolo == 288) {
-				dividendo = 4
-				moltiplicatore = 5
+				dividendo = 4;
+				moltiplicatore = 5;
 
-				angStart = 315
-				angFine = 238
+				angStart = 315;
+				angFine = 238;
         }
         var r = ((((moltiplicatore * dim) / dividendo) / 2 * Math.PI) * 12);
         CanvasDinamico(r, Tipo);
@@ -123,18 +122,18 @@ function DiesegnoCappio(nomeAgo, angolo, dim, Tipo) {
 
 
         var radius = r;
-        var x = (Math.PI / 180) * angStart
-        var y = (Math.PI / 180) * angFine
+        var x = (Math.PI / 180) * angStart;
+        var y = (Math.PI / 180) * angFine;
         var startingAngle = x;
         var endingAngle = y;
         var counterclockwise = false;
-        context.beginPath()
+        context.beginPath();
         context.arc(centerX, centerY, radius, startingAngle, endingAngle, counterclockwise);
 
         context.lineWidth = 2;
         context.strokeStyle = "black";
-        context.stroke()
-        context.beginPath()
+        context.stroke();
+        context.beginPath();
         context.ellipse(2 * r + 30, centerY, 20, 30, Math.PI / 2, 0, 2 * Math.PI);
 
         context.lineWidth = 2;
@@ -143,7 +142,7 @@ function DiesegnoCappio(nomeAgo, angolo, dim, Tipo) {
         context.stroke();
 
     }
-    ScaricaFile()
+    ScaricaFile();
     document.getElementById('cancella').click();
 }
 
@@ -159,38 +158,38 @@ function DisegnaSemi(nomeAgo, angolo, dim, Tipo) {
 if (angolo != 0) {
     if (angolo == 135) {
 
-        var dividendo = 3
-        var moltiplicatore = 8
+        var dividendo = 3;
+        var moltiplicatore = 8;
 
-        var angStart = 25
-        var angFine = 155
+        var angStart = 25;
+        var angFine = 155;
 
     } else if (angolo == 180) {
-        dividendo = 1
-        moltiplicatore = 2
+        dividendo = 1;
+        moltiplicatore = 2;
 
-        angStart = 0
-        angFine = angolo
+        angStart = 0;
+        angFine = angolo;
     } else if (angolo == 225) {
-        dividendo = 5
-        moltiplicatore = 8
+        dividendo = 5;
+        moltiplicatore = 8;
 
-        angStart = 330
-        angFine = 210
+        angStart = 330;
+        angFine = 210;
     }
     else if (angolo == 90) {
-        dividendo = 1
-        moltiplicatore = 4
+        dividendo = 1;
+        moltiplicatore = 4;
 
-        angStart = 45
-        angFine = 135
+        angStart = 45;
+        angFine = 135;
     }
     else if (angolo == 288) {
-        dividendo = 4
-        moltiplicatore = 5
+        dividendo = 4;
+        moltiplicatore = 5;
 
-        angStart = 315
-        angFine = 238
+        angStart = 315;
+        angFine = 238;
         }
         var r = ((((moltiplicatore * dim) / dividendo) / 2 * Math.PI) * 12);
         CanvasDinamico(r, Tipo);
@@ -201,8 +200,8 @@ if (angolo != 0) {
 
 
         var radius = r;
-        var x = (Math.PI / 180) * angStart
-        var y = (Math.PI / 180) * angFine
+        var x = (Math.PI / 180) * angStart;
+        var y = (Math.PI / 180) * angFine;
         var startingAngle = x;
         var endingAngle = y;
         var counterclockwise = false;
@@ -239,38 +238,38 @@ function DisegnaDoppi(nomeAgo, angolo, dim, Tipo) {
 if (angolo != 0) {
     if (angolo == 135) {
 
-        var dividendo = 3
-        var moltiplicatore = 8
+        var dividendo = 3;
+        var moltiplicatore = 8;
 
-        var angStart = 25
-        var angFine = 155
+        var angStart = 25;
+        var angFine = 155;
 
     } else if (angolo == 180) {
-        dividendo = 1
-        moltiplicatore = 2
+        dividendo = 1;
+        moltiplicatore = 2;
 
-        angStart = 0
-        angFine = angolo
+        angStart = 0;
+        angFine = angolo;
     } else if (angolo == 225) {
-        dividendo = 5
-        moltiplicatore = 8
+        dividendo = 5;
+        moltiplicatore = 8;
 
-        angStart = 330
-        angFine = 210
+        angStart = 330;
+        angFine = 210;
     }
     else if (angolo == 90) {
-        dividendo = 1
-        moltiplicatore = 4
+        dividendo = 1;
+        moltiplicatore = 4;
 
-        angStart = 45
-        angFine = 135
+        angStart = 45;
+        angFine = 135;
     }
     else if (angolo == 288) {
-        dividendo = 4
-        moltiplicatore = 5
+        dividendo = 4;
+        moltiplicatore = 5;
 
-        angStart = 315
-        angFine = 238
+        angStart = 315;
+        angFine = 238;
 }
         var r = ((((moltiplicatore * dim) / dividendo) / 2 * Math.PI) * 12);
         CanvasDinamico(r, Tipo);
@@ -281,8 +280,8 @@ if (angolo != 0) {
 
 
         var radius = r;
-        var x = (Math.PI / 180) * angStart
-        var y = (Math.PI / 180) * angFine
+        var x = (Math.PI / 180) * angStart;
+        var y = (Math.PI / 180) * angFine;
         var startingAngle = x;
         var endingAngle = y;
         var counterclockwise = false;
@@ -292,7 +291,7 @@ if (angolo != 0) {
         context.lineWidth = 2;
         context.strokeStyle = "black";
         context.stroke();
-        context.beginPath()
+        context.beginPath();
         context.arc(centerX, centerY + 50, radius, startingAngle, endingAngle, counterclockwise);
 
         context.lineWidth = 2;
@@ -306,14 +305,14 @@ if (angolo != 0) {
         var Lunghezza = dim * 80;
         CanvasRetto(altezzaAgo, Lunghezza, Tipo);
 
-        context.beginPath()
+        context.beginPath();
         context.moveTo(0, altezzaAgo / 2);
         context.lineTo(Lunghezza, altezzaAgo / 2);
         context.lineWidth = 2;
         context.strokeStyle = "black";
         context.stroke();
 
-        context.beginPath()
+        context.beginPath();
         context.moveTo(0, (altezzaAgo / 2) + 20);
         context.lineTo(Lunghezza, (altezzaAgo / 2) + 20);
         context.lineWidth = 2;
