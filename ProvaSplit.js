@@ -45,34 +45,35 @@ input.addEventListener('change', function (e) {
 
         lines.forEach(linea => {
 
-            var cella = linea.split(",");
-            var nomeAgo = cella[0];
-            var angolo = parseFloat(cella[1]);
-            var dimensione = parseFloat(cella[2]);
-            var Modello = cella[3];
 
-            if (Modello == "Semi" || Modello == "Retto") {
-
-                DisegnaSemi(nomeAgo, angolo, dimensione, Modello);
-
-            }
-            else if (Modello == "Cappio") {
-                DiesegnoCappio(nomeAgo, angolo, dimensione, Modello);
-            }
-            else if (Modello == "Doppio") {
-                DisegnaDoppi(nomeAgo, angolo, dimensione, Modello);
-            }
-        }
-        );
-    }
-    reader.readAsText(input.files[0]);
+			var cella = linea.split(";")
+			var nomeAgo = cella[0]
+			var angolo = parseFloat(cella[1])
+			var dimensione = parseFloat(cella[2])
+			var Modello = cella[3]
+			if (Modello == "Semi" || Modello == "Retto") {
+				DisegnaSemi(nomeAgo, angolo, dimensione, Modello);
+		
+			}
+			else if (Modello == "Cappio") {
+		
+				DiesegnoCappio(nomeAgo, angolo, dimensione, Modello);
+		
+			}
+			else if (Modello == "Doppio") {
+				DisegnaDoppi(nomeAgo, angolo, dimensione, Modello);
+			}
+		}
+		);
+	}
+	reader.readAsText(input.files[0])
 }, false)
 
 function DiesegnoCappio(nomeAgo, angolo, dim, Tipo) {
     function ScaricaFile() {
         var dataUrl = canvas.toDataURL("image/png");
         var link = document.createElement('a');
-        link.download = nomeAgo + ".png";
+        link.download = nomeAgo+"C"+".png";
         link.href = dataUrl.replace("image/png", "image/octet-stream");
         console.log(link);
         link.click();
@@ -134,7 +135,7 @@ function DiesegnoCappio(nomeAgo, angolo, dim, Tipo) {
         context.strokeStyle = "black";
         context.stroke();
         context.beginPath();
-        context.ellipse(2 * r + 30, centerY, 20, 30, Math.PI / 2, 0, 2 * Math.PI);
+        context.ellipse(2 * r +30,centerY, 20, 30, Math.PI / 2, 0, 2 * Math.PI);
 
         context.lineWidth = 2;
         context.strokeStyle = "black";
