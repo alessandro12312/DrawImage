@@ -123,10 +123,9 @@ function DiesegnoCappio(nomeAgo, angolo, dim, Tipo) {
 
 
         var radius = r; 
-        var x = (Math.PI / 180) * angStart;
-        var y = (Math.PI / 180) * angFine;
-        var startingAngle = x;
-        var endingAngle = y;
+        var startingAngle = (Math.PI / 180) * angStart;
+        var endingAngle = (Math.PI / 180) * angFine;
+        //GRAZIE VALERIO
         var z = centerX + r * Math.cos(startingAngle);
         var m = centerY + r * Math.sin(startingAngle);  
         var counterclockwise = false;
@@ -137,7 +136,7 @@ function DiesegnoCappio(nomeAgo, angolo, dim, Tipo) {
         context.strokeStyle = "black";
         context.stroke();
         context.beginPath();
-        context.ellipse(z+30,m, 20, 30, Math.PI / 2, 0, 2 * Math.PI);
+        context.ellipse(z+30,m, 20, 30, Math.PI / 2, 0, 2 * Math.PI)
 
         context.lineWidth = 2;
         context.strokeStyle = "black";
@@ -203,10 +202,8 @@ if (angolo != 0) {
 
 
         var radius = r;
-        var x = (Math.PI / 180) * angStart;
-        var y = (Math.PI / 180) * angFine;
-        var startingAngle = x;
-        var endingAngle = y;
+        var startingAngle = (Math.PI / 180) * angStart;
+        var endingAngle = (Math.PI / 180) * angFine;
         var counterclockwise = false;
         context.arc(centerX, centerY, radius, startingAngle, endingAngle, counterclockwise);
 
@@ -283,10 +280,8 @@ if (angolo != 0) {
 
 
         var radius = r;
-        var x = (Math.PI / 180) * angStart;
-        var y = (Math.PI / 180) * angFine;
-        var startingAngle = x;
-        var endingAngle = y;
+        var startingAngle = (Math.PI / 180) * angStart;
+        var endingAngle = (Math.PI / 180) * angFine;
         var counterclockwise = false;
         context.beginPath()
         context.arc(centerX, centerY, radius, startingAngle, endingAngle, counterclockwise);
