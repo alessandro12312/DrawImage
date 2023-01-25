@@ -213,14 +213,18 @@ if (angolo != 0) {
         context.stroke();
     }
     else {
-        var spessore = 2;
+        var spessore = 5;
         var altezzaAgo = spessore + 10;
         var Lunghezza = dim * 80;
         CanvasRetto(altezzaAgo, Lunghezza, Tipo);
 
+        context.beginPath();
+        context.lineJoin='bevel';
         context.moveTo(0, altezzaAgo / 2);
         context.lineTo(Lunghezza, altezzaAgo / 2);
-        context.stroke();
+        context.lineWidth = 2;
+        context.strokeStyle = "black";
+        context.stroke()
     };
     ScaricaFile()
     document.getElementById('cancella').click();
@@ -298,7 +302,7 @@ if (angolo != 0) {
 
     }
     else {
-        var spessore = 2;
+        var spessore = 6;
         var altezzaAgo = spessore + 10;
         var Lunghezza = dim * 80;
         CanvasRetto(altezzaAgo, Lunghezza, Tipo);
@@ -307,7 +311,7 @@ if (angolo != 0) {
         context.moveTo(0, altezzaAgo / 2);
         context.lineTo(Lunghezza, altezzaAgo / 2);
         context.lineWidth = 2;
-        context.strokeStyle = "black";
+        context.strokeStyle = "black";  
         context.stroke();
 
         context.beginPath();
