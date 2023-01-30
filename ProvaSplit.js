@@ -130,7 +130,7 @@ function DiesegnoCappio(nomeAgo, angolo, dim, Tipo) {
         var m = centerY + r * Math.sin(startingAngle);
         var counterclockwise = false;
         context.beginPath();
-        context.arc(centerX, centerY, radius, startingAngle, endingAngle, counterclockwise);
+        context.arc(centerX,centerY-20, radius, startingAngle, endingAngle, counterclockwise);
 
         context.lineWidth = 2;
         context.strokeStyle = "black";
@@ -205,7 +205,7 @@ function DisegnaSemi(nomeAgo, angolo, dim, Tipo) {
         var startingAngle = (Math.PI / 180) * angStart;
         var endingAngle = (Math.PI / 180) * angFine;
         var counterclockwise = false;
-        context.arc(centerX, centerY, radius, startingAngle, endingAngle, counterclockwise);
+        context.arc(centerX, centerY-20, radius, startingAngle, endingAngle, counterclockwise);
 
 
         context.lineWidth = 2;
@@ -288,7 +288,7 @@ function DisegnaDoppi(nomeAgo, angolo, dim, Tipo) {
         var endingAngle = (Math.PI / 180) * angFine;
         var counterclockwise = false;
         context.beginPath()
-        context.arc(centerX, centerY, radius, startingAngle, endingAngle, counterclockwise);
+        context.arc(centerX,centerY-20, radius, startingAngle, endingAngle, counterclockwise);
 
         context.lineWidth = 2;
         context.strokeStyle = "black";
