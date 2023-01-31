@@ -136,7 +136,7 @@ function DiesegnoCappio(nomeAgo, angolo, dim, Tipo) {
         context.strokeStyle = "black";
         context.stroke();
         context.beginPath();
-        context.ellipse(z + 30, m, 20, 30, Math.PI / 2, 0, 2 * Math.PI)
+        context.ellipse(z + 30, m-20, 20, 30, Math.PI / 2, 0, 2 * Math.PI)
 
         context.lineWidth = 2;
         context.strokeStyle = "black";
